@@ -75,3 +75,9 @@ Then edit the generated migration file in `db/migrate/` and run:
 ```bash
 rake db:migrate
 ```
+
+## Zilch CLI interface
+
+To start Zilch with the command line interface:
+$ ruby zilch-cli
+``` 

@@ -23,25 +23,41 @@ GEM
     base64 (0.2.0)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
+    coderay (1.1.3)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.0)
+    database_cleaner-active_record (2.2.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
+    diff-lcs (1.6.1)
     drb (2.2.1)
+    erubi (1.13.1)
+    factory_bot (6.5.1)
+      activesupport (>= 6.1.0)
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     json (2.10.2)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
     logger (1.7.0)
+    method_source (1.1.0)
     minitest (5.25.5)
     multi_json (1.15.0)
     mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
+    netrc (0.11.0)
     nio4r (2.7.4)
     parallel (1.26.3)
     parser (3.3.8.0)
       ast (~> 2.4.1)
       racc
     prism (1.4.0)
+    pry (0.15.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
@@ -53,10 +69,32 @@ GEM
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
+    rack-test (2.2.0)
+      rack (>= 1.3)
     rackup (2.2.1)
       rack (>= 3)
     rainbow (3.1.1)
+    rake (13.2.1)
+    rbi (0.3.2)
+      prism (~> 1.0)
+      rbs (>= 3.4.4)
+      sorbet-runtime (>= 0.5.9204)
+    rbs (3.9.2)
+      logger
     regexp_parser (2.10.0)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.3)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.2)
     rubocop (1.75.2)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -80,6 +118,8 @@ GEM
     rubocop-rspec (3.5.0)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
+    rubocop-sorbet (0.10.0)
+      rubocop (>= 1)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     securerandom (0.4.1)
@@ -99,7 +139,31 @@ GEM
       rack-protection (= 4.1.1)
       sinatra (= 4.1.1)
       tilt (~> 2.0)
+    sorbet (0.5.12028)
+      sorbet-static (= 0.5.12028)
+    sorbet-runtime (0.5.12028)
+    sorbet-static (0.5.12028-universal-darwin)
+    sorbet-static-and-runtime (0.5.12028)
+      sorbet (= 0.5.12028)
+      sorbet-runtime (= 0.5.12028)
+    spoom (1.6.1)
+      erubi (>= 1.10.0)
+      prism (>= 0.28.0)
+      rbi (>= 0.2.3)
+      sorbet-static-and-runtime (>= 0.5.10187)
+      thor (>= 0.19.2)
     sqlite3 (2.6.0-x86_64-darwin)
+    tapioca (0.16.11)
+      benchmark
+      bundler (>= 2.2.25)
+      netrc (>= 0.11.0)
+      parallel (>= 1.21.0)
+      rbi (~> 0.2)
+      sorbet-static-and-runtime (>= 0.5.11087)
+      spoom (>= 1.2.0)
+      thor (>= 1.2.0)
+      yard-sorbet
+    thor (1.3.2)
     tilt (2.6.0)
     timeout (0.4.3)
     tzinfo (2.0.6)
@@ -107,22 +171,37 @@ GEM
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
+    yard (0.9.37)
+    yard-sorbet (0.9.0)
+      sorbet-runtime
+      yard
 
 PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
   activerecord
+  database_cleaner-active_record (~> 2.1)
+  factory_bot (~> 6.4)
+  faker (~> 3.2)
   json
+  pry
   puma
+  rack-test (~> 2.1)
   rackup (~> 2.2)
+  rake (~> 13.1)
+  rspec (~> 3.12)
   rubocop
   rubocop-rails
   rubocop-rspec
+  rubocop-sorbet
   sinatra
   sinatra-activerecord
   sinatra-contrib
+  sorbet
+  sorbet-runtime
   sqlite3
+  tapioca
 
 BUNDLED WITH
    2.3.26
